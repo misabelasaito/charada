@@ -2,7 +2,7 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-usuarios = [
+charadas = [
     {'id': 1, 'pergunta':'O que é, o que é?', 'Quanto mais se tira, maior fica.': '➡ Resposta: Um buraco.'},
     {'id': 2, 'pergunta':'O que é, o que é?', 'Tem cabeça, tem dente, não é bicho e nem é gente.': '➡ Resposta: Alho.'},
     {'id': 3, 'pergunta':'O que é, o que é?', 'Anda sempre com os pés na cabeça.': '➡ Resposta: O piolho.'},
@@ -23,16 +23,10 @@ def index():
 def lista():
     return jsonify(random.choice(charadas)), 200
 
-@app.route('/charadas/<campo>/<busca>', methods=['GET'])
-def busca(campo, busca):
-
-    if campo not in ['id','texto','resposta']:
-        return jsonify({'mensagem':'ERRO! Campo não encontrdo'})
-    if campo == 'id':
-        busca = int(busca)
-        
+@app.route('/charadas/id/<int:id>', methods=['GET'])
+def busca(id):
     for charada in charadas:
-        if charada[campo] == busca:
+        if charada['id'] == id:
             return jsonify(charada), 200
     else:
         return jsonify({'mensagem':'ERRO! Usuário não encontrado'}), 404
