@@ -2,18 +2,18 @@ from flask import Flask, jsonify
 import random
 
 app = Flask(__name__)
-
+    
 charadas = [
-    {'id': 1, 'pergunta':'O que é, o que é?', 'Quanto mais se tira, maior fica.': '➡ Resposta: Um buraco.'},
-    {'id': 2, 'pergunta':'O que é, o que é?', 'Tem cabeça, tem dente, não é bicho e nem é gente.': '➡ Resposta: Alho.'},
-    {'id': 3, 'pergunta':'O que é, o que é?', 'Anda sempre com os pés na cabeça.': '➡ Resposta: O piolho.'},
-    {'id': 4, 'pergunta':'O que é, o que é?', 'Tem coroa, mas não é rei, tem escamas, mas não é peixe.': '➡ Resposta: O abacaxi.'},
-    {'id': 5, 'pergunta':'O que é, o que é?', 'Sempre atravessa o rio sem se molhar.': '➡ Resposta: A ponte.'},
-    {'id': 6, 'pergunta':'O que é, o que é?', 'Quanto mais quente, mais fresco é.': '➡ Resposta: O pão.'},
-    {'id': 7, 'pergunta':'O que é, o que é?', 'Tem olhos, mas não pode ver, tem água, mas não pode beber.': '➡ Resposta: O coco.'},
-    {'id': 8, 'pergunta':'O que é, o que é?', 'Tem pernas, mas não anda, tem braços, mas não abraça.': '➡ Resposta: A cadeira.'},
-    {'id': 9, 'pergunta':'O que é, o que é?', 'Se você tem, quer compartilhar. Se compartilhar, não tem mais.': '➡ Resposta: Um segredo.'},
-    {'id': 10, 'pergunta':'O que é, o que é?', 'Fica no meio do ovo.': '➡ Resposta: A letra "V".'}
+    {'id': 1, 'resposta':'➡ Resposta: Um buraco.', 'O que é, o que é?':'Quanto mais se tira, maior fica.'},
+    {'id': 2, 'resposta':'➡ Resposta: Alho.', 'O que é, o que é?': 'Tem cabeça, tem dente, não é bicho e nem é gente.'},
+    {'id': 3, 'resposta':'➡ Resposta: O piolho.', 'O que é, o que é?':'Anda sempre com os pés na cabeça.'},
+    {'id': 4, 'resposta':'➡ Resposta: O abacaxi.', 'O que é, o que é?':'Tem coroa, mas não é rei, tem escamas, mas não é peixe.'},
+    {'id': 5, 'resposta':'➡ Resposta: A ponte.', 'O que é, o que é?':'Sempre atravessa o rio sem se molhar.'},
+    {'id': 6, 'resposta':'➡ Resposta: O pão.', 'O que é, o que é?':'Quanto mais quente, mais fresco é.'},
+    {'id': 7, 'resposta':'➡ Resposta: O coco.','O que é, o que é?': 'Tem olhos, mas não pode ver, tem água, mas não pode beber.'},
+    {'id': 8, 'resposta':'➡ Resposta: A cadeira.', 'O que é, o que é?':'Tem pernas, mas não anda, tem braços, mas não abraça.'},
+    {'id': 9, 'resposta':'➡ Resposta: Um segredo.', 'O que é, o que é?':'Se você tem, quer compartilhar. Se compartilhar, não tem mais.'},
+    {'id': 10, 'resposta':'➡ Resposta: A letra "V".','O que é, o que é?': 'Fica no meio do ovo.'}
 ]
 
 @app.route('/')
