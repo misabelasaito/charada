@@ -17,27 +17,26 @@ usuarios = [
 
 @app.route('/')
 def index():
-    return 'API TÁ ON PAI'
+    return 'API ON'
 
-@app.route('/usuarios', methods=['GET'])
+@app.route('/charadas', methods=['GET'])
 def lista():
-    return jsonify(usuarios), 200
+    return jsonify(random.choice(charadas)), 200
 
-@app.route('/usuarios/<campo>/<busca>', methods=['GET'])
-def busca(campo,busca):
+@app.route('/charadas/<campo>/<busca>', methods=['GET'])
+def busca(campo, busca):
 
-    if campo not in ['id', 'nome', 'cpf']:
-        return jsonify({'mensagem':'ERRO! - Campo não encontrado'}), 404
-
+    if campo not in ['id','texto','resposta']:
+        return jsonify({'mensagem':'ERRO! Campo não encontrdo'})
     if campo == 'id':
         busca = int(busca)
-
-    for cada_usuario in usuarios:
-        if cada_usuario[campo] == busca:
-            return jsonify(cada_usuario), 200
+        
+    for charada in charadas:
+        if charada[campo] == busca:
+            return jsonify(charada), 200
     else:
-        return jsonify({'mensagem':'ERRO! Usuário não emcontrado'}), 404
+        return jsonify({'mensagem':'ERRO! Usuário não encontrado'}), 404
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     app.run()
