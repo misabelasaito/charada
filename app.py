@@ -27,9 +27,9 @@ def index():
     return 'Api on',200
 
 
-# metodo GET
+# metodo GET - LISTAR CHARADAS
 @app.route('/charadas/lista', methods=['GET'])
-def charadaRandom():
+def charadaList():
     charadas= []
 
     lista = db.collection('charadas').stream()
@@ -41,6 +41,23 @@ def charadaRandom():
         return jsonify(charadas),200
     else:
         return jsonify({'mensagem':'ERRO! Nenhuma charada cadastrada'}), 404
+    
+# metodo GET - CHARADA ALEATORIA
+@app.route('/charadas', methods=['GET'])
+def charadaAleatoria():
+    charadas= []
+
+    lista = db.collection('charadas').stream()
+
+    for item in lista:
+        charadas.append(item.to_dict())
+
+    if charadas:
+        return jsonify(random.choice(charadas)),200
+    else:
+        return jsonify({'mensagem':'ERRO! Nenhuma charada cadastrada'}), 404
+    
+    
 
 @app.route('/charadas/<id>', methods=['GET'])
 def charadaId(id):
