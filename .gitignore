@@ -1,14 +1,1 @@
-charadas = [
-    {'id': 1, 'pergunta':'O que é, o que é? Feito para andar e não anda.', 'resposta': 'A rua'},
-    {'id': 2, 'pergunta':'O que é, o que é? O que o 4 disse para o 40..', 'resposta': 'Passa a bola'},
-    {'id': 3, 'pergunta':'O que é, o que é? Nunca volta, embora nunca tenha ido.', 'resposta': 'O passado'},
-    {'id': 4, 'pergunta':'O que é, o que é? Todo mês tem, menos abril.', 'resposta': 'A letra o'},
-    {'id': 5, 'pergunta':'O que é, o que é?  Pode passar diante do sol sem fazer sombra.', 'resposta': 'O vento'},
-    {'id': 6, 'pergunta':'O que é, o que é? O animal que não vale mais nada.', 'resposta': 'Javali'},
-    {'id': 7, 'pergunta':'O que é, o que é? Quanto maior menos se vê.', 'resposta': 'A escuridão'},
-    {'id': 8, 'pergunta':'O que é, o que é? Nasce no Rio, vive no Rio e morre no Rio, mas não está sempre molhado.', 'resposta': 'O carioca'},
-    {'id': 9, 'pergunta':'O que é, o que é? Um fósforo disse a uma vela de aniversário.', 'resposta': 'É sempre por você que eu perco a cabeça'},
-    {'id': 10, 'pergunta':'O que é, o que é? Voa sem ter asas e chora sem ter olhos.', 'resposta': 'A nuvem'},
-]
-
 .env

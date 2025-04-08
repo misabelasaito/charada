@@ -2,14 +2,19 @@ from flask import Flask,jsonify,request
 from flask_cors import CORS
 from firebase_admin import credentials,firestore
 import firebase_admin
+import json
+import os
+from dotenv import load_dotenv
 import random
 
 app = Flask(__name__)
 CORS(app)
 
+load_dotenv()
+
 FBKEY = json.loads(os.getenv('CONFIG_FIREBASE'))
 
-cred = credentials.Certificate("serviceAccountKey.json")
+cred = credentials.Certificate(FBKEY)
 firebase_admin.initialize_app(cred)
 
 db = firestore.client() #conecta ao db do firebase
@@ -23,7 +28,7 @@ def index():
 
 
 # metodo GET
-@app.route('/charadas', methods=['GET'])
+@app.route('/charadas/lista', methods=['GET'])
 def charadaRandom():
     charadas= []
 
@@ -33,7 +38,7 @@ def charadaRandom():
         charadas.append(item.to_dict())
 
     if charadas:
-        return jsonify(random.choice(charadas)),200
+        return jsonify(charadas),200
     else:
         return jsonify({'mensagem':'ERRO! Nenhuma charada cadastrada'}), 404
 
